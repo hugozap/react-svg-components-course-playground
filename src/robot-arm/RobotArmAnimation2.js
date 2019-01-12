@@ -38,31 +38,37 @@ export default class RobotArmIntervalChange extends Component {
 			rotationA: 0,
 			rotationB: 0,
 			rotationC: 0,
-			dance: true,
+			dance: false,
 			angle: 10,
+			loadingSong: false,
 		}
 		this.startDance = this.startDance.bind(this);
 	}
 
 	componentDidMount() {
 		this.interval = setInterval(()=>{
-
-			this.state.dance && this.setState({
-				rotationA: Math.random() * this.state.angle - this.state.angle/2,
-				rotationB: Math.random() * this.state.angle - this.state.angle/2,
-				rotationC: Math.random() * this.state.angle - this.state.angle/2,
+			const angle = this.state.dance === false ? 10 : this.state.angle;
+			this.setState({
+				rotationA: Math.random() * angle - angle/2,
+				rotationB: Math.random() * angle - angle/2,
+				rotationC: Math.random() * angle - angle/2,
 			})
 		},500);
 	}
 
 	startDance() {
+		if(this.state.dance === true)
+			return;
+
 		this.setState({
-			dance: true
+			dance: true,
+			loadingSong: true,
 		})
 
 		play(yodelBuffer, ()=>{
 			this.setState({
-				angle: 180
+				angle: 180,
+				loadingSong: false,
 			})
 		});
 
@@ -70,6 +76,9 @@ export default class RobotArmIntervalChange extends Component {
 
 	render() {
 		return (
+			<div>
+			{this.state.loadingSong && <p>Warming Up...</p>}
+			{!this.state.dance && <p> Click for awesome stuff to happen. </p>}
 			<SvgLoader onClick={this.startDance} path="/robot-arm.svg" width="500" height="600" viewBox="-250 0 600 500">
 			    <Motion defaultStyle={{angle: 0}} style={{angle: spring(this.state.rotationA)}}>
 			    	{
@@ -96,6 +105,7 @@ export default class RobotArmIntervalChange extends Component {
 			    	}
 			    </Motion>
 			</SvgLoader>
+			</div>
 		);
 	}
 }
