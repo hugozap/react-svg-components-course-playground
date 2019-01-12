@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "d3-scale": "^2.1.2",
+    "midi-player-js": "^2.0.5",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
     "react-motion": "^0.5.2",

@@ -17,7 +17,7 @@ class App extends Component {
      */
     return (
       <div className="App">
-
+      	 <p>Click the robot to start the party </p>
          <RobotArmAnimation2/>
       </div>
     );
