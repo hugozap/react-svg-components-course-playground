@@ -1,0 +1,8 @@
+<svg width="126" height="126" viewBox="0 0 126 126" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="progress">
+<circle id="innercircle" cx="63" cy="63" r="54" fill="#F4F182"/>
+<circle id="progress-back" cx="63" cy="63" r="53" stroke="#8B8B8C" stroke-width="20"/>
+<circle id="progress-circle" cx="63" cy="63" r="53" stroke="#CDC1FF" stroke-width="20"/>
+<text id="progress-text" fill="black" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="12" letter-spacing="0em"><tspan x="59.1309" y="67.1328">0</tspan></text>
+</g>
+</svg>
