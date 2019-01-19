@@ -18,7 +18,8 @@ export default class CircularProgress extends Component {
 		// We now have a reference to the dom element
 		// let's use the path length to create our scale
 		// it will be used to map from (0,100) to (0, path length)
-		console.log(elem);
+		console.log('update progress element called!', elem);
+		//throw new Error('boom')
 		this.scaleMap = scale.scaleLinear()
     	.domain([0, 100])
     	.range([0, elem.getTotalLength()]); 
@@ -32,19 +33,22 @@ export default class CircularProgress extends Component {
 		// We need to map from 0 - 100 to 0 - path length
 
 		const targetOffset = this.scaleMap ?  this.scaleMap(this.props.value) : 0
-		console.log(this.props.value);
+		console.log('targetOffset', targetOffset);
+		console.log('pathLength', this.state.pathLength);
 		return (
 			<SvgLoader path="/circle-progress.svg">
-			   <Motion defaultStyle={{offset:0}} style={{offset: spring(targetOffset)}}>
+			    <Motion defaultStyle={{offset:0}} style={{offset: spring(targetOffset)}}>
 			   {(style)=>{
+			   	 //console.log('motion cb', style);
 			   	 return <SvgProxy selector="#progress-circle"
-			   	  stroke-dasharray={this.state.pathLength}
-			   	  stroke-dashoffset={style.offset}
+			   	  stroke-dasharray={this.state.pathLength.toString()}
+			   	  stroke-dashoffset={style.offset.toString()}
 			   	  onElementSelected={this.updateProgressElement}/>
+
 
 			   }}
 			   </Motion>
-			   <SvgProxy selector="tspan">{this.props.value}</SvgProxy>
+			   <SvgProxy selector="tspan">{this.props.value.toString()}</SvgProxy>
 			</SvgLoader>
 		);
 	}

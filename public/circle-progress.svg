@@ -3,6 +3,6 @@
 <circle id="innercircle" cx="63" cy="63" r="54" fill="#F4F182"/>
 <circle id="progress-back" cx="63" cy="63" r="53" stroke="#8B8B8C" stroke-width="20"/>
 <circle id="progress-circle" cx="63" cy="63" r="53" stroke="#CDC1FF" stroke-width="20"/>
-<text id="progress-text" fill="black" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="12" letter-spacing="0em"><tspan x="59.1309" y="67.1328">0</tspan></text>
+<text id="progress-text" fill="black" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="36" letter-spacing="0em"><tspan x="53.8926" y="77.3984">0</tspan></text>
 </g>
 </svg>

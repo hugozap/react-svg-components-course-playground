@@ -22,7 +22,7 @@ class App extends Component {
   		this.setState({
   			progress: Math.random()*100,
   		})
-  	})
+  	}, 1000);
   }
   render() {
   	/*
